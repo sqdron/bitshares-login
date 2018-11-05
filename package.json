@@ -1,6 +1,6 @@
 {
   "name": "bitshares-login",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Bitshares Login",
   "main": "./lib/index.js",
   "scripts": {

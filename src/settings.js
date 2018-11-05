@@ -39,12 +39,27 @@ const nodeRegions = [
   "South America",
 ];
 
-export const Settings = {
+let defaults = {
+  _faucet: "",
+  _refcode: null,
+  _referrer: null,
+};
+
+export const InitDefaults = (faucet_url, refcode, referrer) => {
+  defaults._faucet = faucet_url;
+  defaults._refcode = refcode;
+  defaults._referrer = referrer;
+}
+
+export let Settings = {
   API: {
     OpenLedger: openledgerAPIs,
   },
   DefaultNode: "wss://fake.automatic-selection.com",
   DefaultFaucet: getFaucet().url,
+  Faucet: () => defaults._faucet ? defaults._faucet : getFaucet().url,
+  Refcode: () => defaults._refcode ? defaults._refcode : "",
+  Referrer: () => defaults._referrer ? defaults._referrer : "",
   TestNetFaucet: "https://faucet.testnet.bitshares.eu",
   NodeRegions: nodeRegions,
   Nodes: [

@@ -1,7 +1,6 @@
 import {assert} from 'chai';
 import {Crypto} from "../src/utils/crypto";
-import {Account} from "../src/account/account";
-import {BitShares} from "../src/api/bitshares";
+import {BitSharesApi} from "../src/api/bitshares";
 
 describe('Test Crypto', () => {
   it('should test key generations from password', () => {
@@ -12,33 +11,37 @@ describe('Test Crypto', () => {
   });
 });
 
-describe('Test Get Account By Name', () => {
-  it('should test get account by name', () => {
-    BitShares.connect("wss://bitshares.openledger.info/ws").then(() => {
-      return Account.getAccount("dmtestusername1").then(acc => {
-        assert(acc != null);
-        BitShares.close();
-      }).catch(e => {
-        assert(e == null);
-        BitShares.close();
-      })
-    }).catch(e => console.log(e));
-    console.log("done!");
-  });
-});
-
-// describe('Test Login Account', () => {
-//   it('should test login account', () => {
-//     BitShares.connect("wss://bitshares.openledger.info/ws").then(() => {
-//       return Account.login("dmtestusername1", "password1").then(acc => {
+// describe('Test Get Account By Name', () => {
+//   it('should test get account by name', () => {
+//     // BitSharesApi()
+//     BitSharesApi.connect("wss://bitshares.openledger.info/ws").then(() => {
+//       console.log(BitSharesApi.api().account)
+//       return BitSharesApi.api().account.getAccount("dmtestusername1").then(acc => {
 //         assert(acc != null);
-//         BitShares.close();
+//         BitSharesApi.close();
 //       }).catch(e => {
 //         console.log(e)
 //         assert(e == null);
-//         // BitShares.close();
+//         BitSharesApi.close();
 //       })
 //     }).catch(e => console.log(e));
 //     console.log("done!");
 //   });
 // });
+
+describe('Test Login Account', () => {
+  it('should test login account', () => {
+    BitSharesApi.init("https://faucet.bitshares.eu/onboarding", "test", "test");
+    BitSharesApi.connect("wss://bitshares.openledger.info/ws").then(() => {
+      return BitSharesApi.api().account.create("dmtestusername3", "password3").then(acc => {
+        console.log(acc)
+        assert(acc != null);
+        BitSharesApi.close();
+      }).catch(e => {
+        console.log(e)
+        assert(e == null);
+      })
+    }).catch(e => console.log(e));
+    console.log("done!");
+  });
+});
