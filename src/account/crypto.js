@@ -1,9 +1,11 @@
-import {PrivateKey} from "bitsharesjs";
+// import {PrivateKey} from "bitsharesjs";
 
 const generateKeyFromPassword = (accountName, role, password) => {
   let seed = accountName + role + password;
-  let privKey = PrivateKey.fromSeed(seed);
-  let pubKey = privKey.toPublicKey().toPublicKeyString("BTS");
+  let privKey = "";
+  let pubKey = "";
+  // let privKey = PrivateKey.fromSeed(seed);
+  // let pubKey = privKey.toPublicKey().toPublicKeyString("BTS");
 
   return {privKey, pubKey};
 };

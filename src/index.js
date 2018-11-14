@@ -1,4 +1,4 @@
-import {BitSharesApi} from "./api/bitshares";
+import {BitSharesApi} from "./account/api";
 
 require('es6-promise').polyfill();
 

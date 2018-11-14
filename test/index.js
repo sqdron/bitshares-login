@@ -1,6 +1,8 @@
 import {assert} from 'chai';
-import {Crypto} from "../src/utils/crypto";
-import {BitSharesApi} from "../src/api/bitshares";
+import {Crypto} from "../src/account/crypto";
+import {BitSharesApi} from "../src/account/api";
+
+require('isomorphic-fetch');
 
 describe('Test Crypto', () => {
   it('should test key generations from password', () => {

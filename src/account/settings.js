@@ -1,6 +1,3 @@
-import {getFaucet} from "./branding";
-
-
 const openledgerAPIs = {
   BASE: "https://ol-api1.openledger.info/api/v0/ol/support",
   COINS_LIST: "/coins",
@@ -56,8 +53,8 @@ export let Settings = {
     OpenLedger: openledgerAPIs,
   },
   DefaultNode: "wss://fake.automatic-selection.com",
-  DefaultFaucet: getFaucet().url,
-  Faucet: () => defaults._faucet ? defaults._faucet : getFaucet().url,
+  DefaultFaucet: "https://faucet.bitshares.eu/onboarding",
+  Faucet: () => defaults._faucet ? defaults._faucet : "https://faucet.bitshares.eu/onboarding",
   Refcode: () => defaults._refcode ? defaults._refcode : "",
   Referrer: () => defaults._referrer ? defaults._referrer : "",
   TestNetFaucet: "https://faucet.testnet.bitshares.eu",

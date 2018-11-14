@@ -1,8 +1,6 @@
-import {Crypto} from "../utils/crypto";
-import {Settings} from "../settings";
-import {BitSharesApi} from "../api/bitshares";
-
-require('isomorphic-fetch');
+import {Crypto} from "./crypto";
+import {Settings} from "./settings";
+import {BitSharesApi} from "./api";
 
 export const AccountService = {
   getAccount: async (name) => {

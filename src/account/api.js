@@ -1,6 +1,6 @@
 import {Apis} from "bitsharesjs-ws";
-import {InitDefaults, Settings} from "../settings";
-import {AccountService} from "../account/account";
+import {InitDefaults, Settings} from "./settings";
+import {AccountService} from "./account";
 
 const conn = {
   connection: null,
