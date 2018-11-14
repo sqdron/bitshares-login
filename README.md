@@ -19,7 +19,7 @@ import {BitShares} from 'bitshares-login';
 ### Setup defaults
 
 ```
-BitShares.init("https://faucet.bitshares.eu/onboarding", "refcode", "referrer");
+BitShares.init("https://openledger.io", "refcode", "referrer");
 
 ```
 
