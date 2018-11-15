@@ -188,22 +188,17 @@ Point.prototype.getEncoded = function (compressed) {
   let x = this.affineX
   let y = this.affineY
 
-  let byteLength = this.curve.pLength
-  let buffer
-
   // 0x02/0x03 | X
+  let append = "";
   if (compressed) {
-    buffer = Buffer.allocUnsafe(1 + byteLength)
-    buffer.writeUInt8(y.isEven() ? 0x02 : 0x03, 0)
-
-    // 0x04 | X | Y
+    append += y.isEven() ? '02' : '03'
   } else {
-    buffer = Buffer.allocUnsafe(1 + byteLength + byteLength)
-    buffer.writeUInt8(0x04, 0)
-    y.toBuffer(byteLength).copy(buffer, 1 + byteLength)
+    //   buffer = Buffer.allocUnsafe(1 + byteLength + byteLength)
+    //   buffer.writeUInt8(0x04, 0)
+    //   y.toBuffer(byteLength).copy(buffer, 1 + byteLength)
   }
-  // return Buffer.from(x.toString(16), "hex")
-  return x.toString(16)
+
+  return append + x.toString(16)
 }
 
 Point.decodeFrom = function (curve, buffer) {

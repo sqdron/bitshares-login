@@ -1,4 +1,5 @@
 import createHash from "create-hash";
+var hash = require('hash.js');
 
 /** @arg {string|Buffer} data
  @arg {string} [digest = null] - 'hex', 'binary' or 'base64'
@@ -15,5 +16,7 @@ function ripemd160(data) {
     .update(data)
     .digest();
 }
+
+
 
 export {sha256, ripemd160};

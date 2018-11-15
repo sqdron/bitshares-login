@@ -1,8 +1,8 @@
-import PrivateKey from "./PrivateKey";
+import privateKey from "./privatekey";
 
 const generateKeyFromPassword = (accountName, role, password) => {
   let seed = accountName + role + password;
-  let privKey = PrivateKey.fromSeed(seed);
+  let privKey = privateKey.fromSeed(seed);
   let pubKey = privKey.toPublicKey().toPublicKeyString("BTS");
 
   console.log(pubKey)
