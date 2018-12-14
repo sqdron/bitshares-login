@@ -1,13 +1,12 @@
-import {Point, getCurveByName} from "ecurve";
+import {Point, getCurveByName} from "./crypto/ecurve";
 
 const secp256k1 = getCurveByName("secp256k1");
 import {encode} from "./crypto/base58";
 
-var hash = require('hash.js');
+const hash = require('hash.js');
 const Buffer = require('buffer/').Buffer;
 
 class PublicKey {
-  /** @param {Point} public key */
   constructor(Q) {
     this.Q = Q;
   }

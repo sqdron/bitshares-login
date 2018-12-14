@@ -31,22 +31,22 @@ describe('Test Crypto', () => {
 //   });
 // });
 //
-// describe('Test Login Account', () => {
-//   it('should test login account', () => {
-//     console.log("Init")
-//     BitSharesApi.init("https://faucet.bitshares.eu/onboarding", "test", "test");
-//     console.log("Connect")
-//     BitSharesApi.connect("wss://bitshares.openledger.info/ws").then(() => {
-//       console.log("Crete account")
-//       return BitSharesApi.api().account.create("dmtestusername4", "password4").then(acc => {
-//         console.log(acc)
-//         assert(acc != null);
-//         BitSharesApi.close();
-//       }).catch(e => {
-//         console.log(e)
-//         assert(e == null);
-//       })
-//     }).catch(e => console.log(e));
-//     console.log("done!");
-//   });
-// });
+describe('Test Login Account', () => {
+  it('should test login account', () => {
+    console.log("Init")
+    BitSharesApi.init("https://faucet.bitshares.eu/onboarding", null, null);
+    console.log("Connect")
+    BitSharesApi.connect("wss://bitshares.nu/ws").then(() => {
+      console.log("Crete account")
+      return BitSharesApi.api().account.create("dmtestusername5", "password5").then(acc => {
+        console.log(acc)
+        assert(acc != null);
+        BitSharesApi.close();
+      }).catch(e => {
+        console.log(e)
+        assert(e == null);
+      })
+    }).catch(e => console.log(e));
+    console.log("done!");
+  });
+});
