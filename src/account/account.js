@@ -29,14 +29,14 @@ export const AccountService = {
     let {pubKey: ownerPub} = Crypto.KeyFromPassword(name, "owner", password);
     let {pubKey: activePub} = Crypto.KeyFromPassword(name, "active", password);
     let {pubKey: memoPub} = Crypto.KeyFromPassword(name, "memo", password);
-    console.log("owner", ownerPub);
-    console.log("active", activePub);
-    console.log("memo", memoPub);
+    // console.log("owner", ownerPub);
+    // console.log("active", activePub);
+    // console.log("memo", memoPub);
 
     let faucetAddress = Settings.Faucet();
-    console.log("Settings.Faucet", Settings.Faucet());
-    console.log("Refcode:", Settings.Refcode());
-    console.log("Referrer:", Settings.Referrer());
+    // console.log("Settings.Faucet", Settings.Faucet());
+    // console.log("Refcode:", Settings.Refcode());
+    // console.log("Referrer:", Settings.Referrer());
     return await fetch(
       faucetAddress + "/api/v1/accounts",
       {
