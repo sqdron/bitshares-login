@@ -35,6 +35,8 @@ export const AccountService = {
 
     let faucetAddress = Settings.Faucet();
     console.log("Settings.Faucet", Settings.Faucet());
+    console.log("Refcode:", Settings.Refcode());
+    console.log("Referrer:", Settings.Referrer());
     return await fetch(
       faucetAddress + "/api/v1/accounts",
       {
@@ -50,8 +52,8 @@ export const AccountService = {
             owner_key: ownerPub,
             active_key: activePub,
             memo_key: memoPub,
-            refcode: Settings.Refcode,
-            referrer: Settings.Referrer,
+            refcode: Settings.Refcode(),
+            referrer: Settings.Referrer(),
           },
         }),
       },
