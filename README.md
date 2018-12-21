@@ -7,6 +7,8 @@ This library can be obtained through npm:
 npm install bitshares-login
 ```
 
+Works fine with React-Native. Most crypto libraries was ported and works fine with RN
+
 ## Usage
 
 ### Import 
